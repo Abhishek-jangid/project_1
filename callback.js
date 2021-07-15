@@ -1,10 +1,10 @@
 const a = 10;
-function test(successCallback, errorCallback) {
-    if (a < 0) {
-        errorCallback('oops');
+function test(number, successCallback, errorCallback) {
+    if (a > number) {
+        errorCallback('a is greater');
     }
     else {
-        successCallback('yay')
+        successCallback('your number is greater')
     }
 }
 
@@ -16,4 +16,10 @@ function errorFunction(error) {
     console.log('error function', error)
 }
 
-test(successFunction, errorFunction)
+test(13, successFunction, errorFunction)
+
+test(
+    3,
+    (successData) => { console.log('successData', successData) },
+    (errorData) => { console.log('errorData', errorData) }
+)
